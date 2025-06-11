@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>フェイスエクササイズ講演レポート</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Hiragino Sans', 'Yu Gothic', 'Meiryo', sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .presentation-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(45deg, #ff6b6b, #feca57);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.2em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header .subtitle {
+            font-size: 1.1em;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+        
+        .header .meta-info {
+            background: rgba(255,255,255,0.2);
+            padding: 15px;
+            border-radius: 10px;
+            display: inline-block;
+        }
+        
+        .content {
+            padding: 0;
+        }
+        
+        .section {
+            padding: 40px;
+            border-bottom: 3px solid #f8f9fa;
+        }
+        
+        .section:last-child {
+            border-bottom: none;
+        }
+        
+        .section h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #3498db;
+            position: relative;
+        }
+        
+        .section h2::before {
+            content: "💪";
+            margin-right: 10px;
+        }
+        
+        .section h3 {
+            color: #e74c3c;
+            font-size: 1.4em;
+            margin: 25px 0 15px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .section h3::before {
+            content: "✨";
+            position: absolute;
+            left: 0;
+        }
+        
+        .muscle-types {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .muscle-card {
+            background: linear-gradient(135deg, #74b9ff, #0984e3);
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+        
+        .muscle-card h4 {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            border-bottom: 2px solid rgba(255,255,255,0.3);
+            padding-bottom: 10px;
+        }
+        
+        .exercise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        .exercise-card {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 5px solid #e74c3c;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        }
+        
+        .exercise-card h4 {
+            color: #2c3e50;
+            font-size: 1.2em;
+            margin-bottom: 15px;
+        }
+        
+        .exercise-steps {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #3498db;
+        }
+        
+        .exercise-steps p {
+            margin-bottom: 10px;
+        }
+        
+        .exercise-steps strong {
+            color: #e74c3c;
+        }
+        
+        .voice-training {
+            background: linear-gradient(135deg, #fd79a8, #e84393);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin: 25px 0;
+        }
+        
+        .voice-training h4 {
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .voice-exercises {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .voice-item {
+            background: rgba(255,255,255,0.2);
+            padding: 15px;
+            border-radius: 8px;
+        }
+        
+        .benefits-section {
+            background: linear-gradient(135deg, #00b894, #00cec9);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin: 25px 0;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .benefit-item {
+            background: rgba(255,255,255,0.2);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .summary {
+            background: linear-gradient(135deg, #ffecd2, #fcb69f);
+            padding: 40px;
+            text-align: center;
+            color: #2c3e50;
+        }
+        
+        .summary h2 {
+            color: #d63031;
+            border-color: #d63031;
+        }
+        
+        .summary p {
+            font-size: 1.1em;
+            margin: 20px 0;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .highlight {
+            background: #fff3cd;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 5px solid #ffc107;
+            margin: 20px 0;
+        }
+        
+        .instructor-info {
+            background: rgba(255,255,255,0.9);
+            padding: 15px 25px;
+            border-radius: 25px;
+            display: inline-block;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+        
+        @media (max-width: 768px) {
+            .muscle-types {
+                grid-template-columns: 1fr;
+            }
+            
+            .exercise-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 1.8em;
+            }
+            
+            .section {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation-container">
+        <div class="header">
+            <h1>今日から始める！笑顔輝くフェイスエクササイズと顔の筋肉の秘密</h1>
+            <div class="subtitle">5/22ふれあい･いきいきサロン・講演レポート</div>
+            <div class="meta-info">
+                <div class="instructor-info">講師：たんぽぽ組 関野さん</div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <div class="section">
+                <h2>顔の筋肉の基礎知識</h2>
+                <p>講演は、「顔の筋肉には大きく分けて2つの種類がある」という話から始まりました。これら両方の筋肉を意識し、鍛えることが美しく健康的な顔を保つ秘訣だそうです。</p>
+                
+                <div class="muscle-types">
+                    <div class="muscle-card">
+                        <h4>1. 表情筋</h4>
+                        <p>目、口、鼻、眉などを動かし、喜怒哀楽といった豊かな表情を作り出す筋肉。顔には30種類以上も存在するといいます。</p>
+                    </div>
+                    <div class="muscle-card">
+                        <h4>2. 咀嚼筋</h4>
+                        <p>食べ物を噛む時に使う筋肉。美容だけでなく、健康維持にも不可欠な重要な筋肉です。</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>パーツ別フェイスエクササイズ</h2>
+                <p>講演では、参加者が鏡を手に、様々なフェイスエクササイズを実践しました。</p>
+                
+                <div class="exercise-grid">
+                    <div class="exercise-card">
+                        <h4>額のシワ（前頭筋）</h4>
+                        <div class="exercise-steps">
+                            <p>眉毛を上げ下げする動きで前頭筋を意識。まぶたを上げる筋肉の衰えが横ジワの原因になることも解説されました。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="exercise-card">
+                        <h4>まぶたのたるみ（眼輪筋）</h4>
+                        <div class="exercise-steps">
+                            <p><strong>基本の開閉運動：</strong>目を閉じたり開けたりを5回繰り返します。開ける際にパッと大きく見開くのがポイント。</p>
+                            <p><strong>ウィンク：</strong>左右片方ずつウィンク。普段使わない筋肉を意識して動かします。苦手な方も、できる範囲で挑戦。</p>
+                            <p><strong>上まぶた集中エクササイズ：</strong>両目の下を押さえ、下まぶたを動かさずに上まぶただけでパチパチと瞬き。</p>
+                            <p><strong>（上級編）下まぶたエクササイズ：</strong>下まぶただけを使って目を閉じる練習。非常に難しいですが、紹介されました。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="exercise-card">
+                        <h4>頬のたるみ</h4>
+                        <div class="exercise-steps">
+                            <p><strong>膨らませる・へこませる運動：</strong>鼻の下にも空気を入れるように意識して頬を大きく膨らませる、次にひょっとこのように口をすぼめてへこませる、を10回繰り返します。80代になるとへこませる動きが難しくなる方もいるとのこと。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="exercise-card">
+                        <h4>口の周りの悩み（口輪筋）</h4>
+                        <div class="exercise-steps">
+                            <p>ゴルゴライン、ほうれい線、マリオネットラインといった悩みに触れつつ、口輪筋の重要性を強調。</p>
+                            <p><strong>「うー」「いー」エクササイズ：</strong>口を「うー」とおちょぼ口にし、次に「いー」と横に引く動きを繰り返します。テレビを見ながらでもできる簡単なエクササイズです。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="exercise-card">
+                        <h4>舌の筋肉（内舌筋・外舌筋）</h4>
+                        <div class="exercise-steps">
+                            <p>舌の形を変える内舌筋、舌の位置を変え口を開ける動作を助ける外舌筋を鍛えます。</p>
+                            <p><strong>舌回し運動：</strong>口を閉じ、舌で歯茎の外側を左右それぞれ5回ずつ、ゆっくりと大きく回します。次に、歯の付け根（内側）を同様に回す、より難しいエクササイズも紹介。脳も活性化されるそうです。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="exercise-card">
+                        <h4>顎（おとがい筋）</h4>
+                        <div class="exercise-steps">
+                            <p>梅干しを作るように顎にシワを寄せる動きで使われる筋肉。舌回し運動などでも自然と鍛えられるとのこと。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>首のストレッチでスッキリ！</h2>
+                <p>首の筋肉は頭の動きや姿勢維持、肩甲骨の動きにも関与する重要な部分。日頃から体を伸ばすことの重要性を説き、縮こまりがちな筋肉を意識して伸ばす習慣を推奨してました。</p>
+                
+                <div class="exercise-grid">
+                    <div class="exercise-card">
+                        <h4>基本の首伸ばし</h4>
+                        <div class="exercise-steps">
+                            <p>口をおちょぼ口にしてゆっくりと上を向き、首の前側を伸ばします。10秒キープし、ゆっくり戻します。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="exercise-card">
+                        <h4>舌出し首伸ばし</h4>
+                        <div class="exercise-steps">
+                            <p>舌を天井に向かって突き出すようにして同様に上を向き、首の前側をさらに意識して伸ばします。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>美容と健康の土台！姿勢と腹筋</h2>
+                <div class="highlight">
+                    <p>正しい姿勢で座ることの重要性も指摘されました。体が傾くと顔のバランスにも影響が出るとのこと。また、腹筋を鍛えることは良い姿勢を保ち、健康的な美しさにつながるとし、日常生活で簡単にできる腹筋運動も紹介されました。</p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>顔と一枚続き！頭皮ケアの重要性</h2>
+                <p>頭皮の筋肉の衰えは顔のたるみにも影響します。育毛剤を使うだけでなく、頭皮マッサージが重要だと語られました。</p>
+                
+                <h3>頭皮の筋肉</h3>
+                <p>前頭筋、側頭筋、後頭筋の3つ。</p>
+                
+                <h3>マッサージ方法</h3>
+                <div class="exercise-steps">
+                    <p>指の腹を使い、中心から外側へ、下から上へと引き上げるように、くるくると円を描きながらマッサージ。シャンプー時にも意識すると良いでしょう。爪を立てないように注意が必要です。</p>
+                </div>
+                
+                <h3>頭皮の構造と効果</h3>
+                <p>頭皮は非常に薄く、血行やリンパの流れが悪くなると髪の成長にも影響が。マッサージで血行を促進し、健康な髪と引き締まった顔を目指します。</p>
+                
+                <h3>頭皮のツボ</h3>
+                <p>「ぼんのくぼ」など、リラックス効果や育毛効果のあるツボも刺激できるとのこと。</p>
+            </div>
+            
+            <div class="section">
+                <h2>滑舌もアップ！ボイストレーニング</h2>
+                <p>アナウンサーも行うというボイストレーニングも紹介されました。鏡を見ながら、正しい口の形で発声することがポイント。</p>
+                
+                <div class="voice-training">
+                    <h4>🎤 発声練習メニュー</h4>
+                    <div class="voice-exercises">
+                        <div class="voice-item">
+                            <strong>基本の発声</strong><br>
+                            「あいうえお」を口を大きく開けてはっきりと5回
+                        </div>
+                        <div class="voice-item">
+                            <strong>応用発声</strong><br>
+                            「あえいうえおあお」「かきくけこかこ」「がぎぐげごがご」「きゃきぇききゅけきょきゃきょ」
+                        </div>
+                        <div class="voice-item">
+                            <strong>早口言葉</strong><br>
+                            「老若男女（ろうにゃくなんにょとなりやすい）」「マサチューセッツ州」「バナナババロア」など、楽しみながらできる脳トレとしても紹介
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>生きる基本！咀嚼筋を意識した食事</h2>
+                <p>最後に、咀嚼筋の重要性について改めて強調されました。</p>
+                
+                <div class="benefits-section">
+                    <h4>よく噛むことの効果</h4>
+                    <div class="benefits-grid">
+                        <div class="benefit-item">
+                            <strong>消化促進</strong><br>
+                            食べ物をよく噛む（目安20回以上）ことで、消化を助けます
+                        </div>
+                        <div class="benefit-item">
+                            <strong>脳の活性化</strong><br>
+                            咀嚼により脳を活性化させます
+                        </div>
+                        <div class="benefit-item">
+                            <strong>歯の健康</strong><br>
+                            左右均等に噛むこと、定期的な歯科検診の重要性
+                        </div>
+                        <div class="benefit-item">
+                            <strong>咀嚼筋強化</strong><br>
+                            食べ物を噛む時に働く筋肉は主に4種類
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="highlight">
+                    <p>講師自身の歯の治療体験談も交え、歯の健康が全身の健康、そして咀嚼筋の働きに直結することを伝えました。</p>
+                </div>
+            </div>
+            
+            <div class="summary">
+                <h2>まとめ</h2>
+                <p>今回の講演は、顔の表面的なケアだけでなく、その土台となる筋肉や、さらには全身の姿勢、生活習慣に至るまで、トータルで美と健康を考える内容でした。</p>
+                <p>紹介されたエクササイズやケアは、日常生活の中で手軽に取り入れられるものばかり。</p>
+                <p><strong>ぜひ、今日から一つでも実践して、より輝く笑顔と健康を手に入れてみてはいかがでしょうか。</strong></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
