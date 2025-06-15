@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gemini 2.5 Pro vs ChatGPT o3 比較分析</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .section-title {
+            color: #2563eb; /* プライマリーカラー */
+        }
+        .summary {
+            color: #475569; /* セカンダリーカラー */
+        }
+        .important {
+            color: #ef4444; /* 高 */
+        }
+        .medium {
+            color: #f59e0b; /* 中 */
+        }
+        .low {
+            color: #10b981; /* 低 */
+        }
+        .qa-item {
+            margin-bottom: 1rem;
+        }
+        .qa-question {
+            cursor: pointer;
+            padding: 0.75rem;
+            background-color: #f8fafc; /* アクセントカラー */
+            border-radius: 0.375rem;
+            border: 1px solid #e2e8f0;
+            margin-bottom: 0.25rem;
+            font-weight: 500; /* Medium font weight */
+        }
+        .qa-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-in-out;
+            padding: 0 0.75rem;
+            background-color: #ffffff;
+            border-radius: 0.375rem;
+            border: 1px solid #e2e8f0;
+            margin-top: -1px;
+        }
+        input[type="checkbox"] {
+            display: none;
+        }
+        input[type="checkbox"]:checked + label + .qa-answer {
+            max-height: 500px; /* 適切な高さに調整 */
+            padding-bottom: 0.75rem;
+        }
+        .highlight {
+            background-image: linear-gradient(120deg, #f0f4c3 0%, #a8ff78 100%);
+            background-repeat: no-repeat;
+            background-size: 100% 0.5em;
+            background-position: 0 88%;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-4 sm:p-6 md:p-8">
+    <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-6 sm:p-8 md:p-10">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-semibold text-center mb-6 md:mb-8 section-title">
+            Gemini 2.5 Pro vs<br>ChatGPT o3 比較分析
+        </h1>
+        <p class="text-center text-gray-600 mb-8 md:mb-10 summary">
+            本レポートでは、GoogleのGemini 2.5 ProとOpenAIのChatGPT o3の性能、機能、得意分野などを<br>徹底比較します。<br>
+            それぞれの強み・弱みを明確にし、最適な利用シーンを提案します。
+        </p>
+
+        <section class="mb-8 md:mb-10">
+            <h2 class="text-2xl sm:text-2xl font-semibold mb-4 md:mb-6 section-title">1. 基本性能比較</h2>
+            <p class="mb-4 md:mb-6 summary">
+                Gemini 2.5 ProとChatGPT o3は、どちらも非常に高い性能を持つ大規模言語モデルですが、アーキテクチャや得意分野に違いがあります。
+            </p>
+            <ul class="list-disc list-inside space-y-2 md:space-y-3">
+                <li><span class="font-semibold">Gemini 2.5 Pro</span>:
+                    <ul class="list-disc list-inside ml-5">
+                        <li>Googleによって開発された、マルチモーダル対応の基盤モデル。</li>
+                        <li>テキスト、コード、画像、音声、動画など、様々な種類の情報を処理できる。</li>
+                        <li>特に、長文脈の処理能力と、複数のタスクを組み合わせた複雑な処理に強みを持つ<span class="important">（重要度：高）</span>。</li>
+                    </ul>
+                </li>
+                <li><span class="font-semibold">ChatGPT o3</span>:
+                    <ul class="list-disc list-inside ml-5">
+                        <li>OpenAIによって開発された、テキスト生成に特化した言語モデル。</li>
+                        <li>自然な対話能力と、多様な文章生成能力を持つ。</li>
+                         <li>プラグインによる機能拡張が可能<span class="medium">（重要度：中）</span>。</li>
+                    </ul>
+                </li>
+            </ul>
+            <hr class="my-6 md:my-8">
+            <div class="qa-item">
+                <input type="checkbox" id="qa1">
+                <label for="qa1">
+                    <div class="qa-question">Q. マルチモーダル対応とは何ですか？</div>
+                </label>
+                <div class="qa-answer">
+                    A. マルチモーダル対応とは、AIがテキストだけでなく、画像、音声、動画など、複数の種類の情報を処理し、理解し、生成できる能力のことです。
+                </div>
+            </div>
+            <div class="qa-item">
+                <input type="checkbox" id="qa2">
+                <label for="qa2">
+                    <div class="qa-question">Q. 長文脈の処理能力とは、具体的にどのような能力ですか？</div>
+                </label>
+                <div class="qa-answer">
+                    A. 長文脈の処理能力とは、AIが長い文章や会話の流れを理解し、文脈を踏まえた適切な応答や処理ができる能力のことです。
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-8 md:mb-10">
+            <h2 class="text-2xl sm:text-2xl font-semibold mb-4 md:mb-6 section-title">2. 得意分野の比較</h2>
+            <p class="mb-4 md:mb-6 summary">
+                Gemini 2.5 ProとChatGPT o3は、それぞれ異なる得意分野を持っています。
+            </p>
+            <ul class="list-disc list-inside space-y-2 md:space-y-3">
+                <li><span class="font-semibold">Gemini 2.5 Pro</span>:
+                    <ul class="list-disc list-inside ml-5">
+                        <li><span class="highlight">複雑なタスク処理</span>: 複数の情報源を統合し、複雑な問題を解決する能力に優れています<span class="important">（重要度：高）</span>。</li>
+                        <li><span class="highlight">コード生成・実行</span>: 高度なコーディング能力を持ち、コードの生成だけでなく、実行やテストも可能です<span class="important">（重要度：高）</span>。</li>
+                        <li><span class="highlight">マルチモーダル応用</span>: 画像、動画、音声などを活用した、より高度な情報処理が可能です<span class="medium">（重要度：中）</span>。</li>
+                    </ul>
+                </li>
+                <li><span class="font-semibold">ChatGPT o3</span>:
+                    <ul class="list-disc list-inside ml-5">
+                        <li><span class="highlight">自然な対話</span>: 人間と自然な対話を行う能力に優れています<span class="important">（重要度：高）</span>。</li>
+                        <li><span class="highlight">多様な文章生成</span>: 小説、詩、脚本など、様々な種類の文章を生成できます<span class="medium">（重要度：中）</span>。</li>
+                        <li><span class="highlight">プラグイン拡張性</span>: 外部ツールやサービスとの連携により、機能を拡張できます<span class="low">（重要度：低）</span>。</li>
+                    </ul>
+                </li>
+            </ul>
+            <hr class="my-6 md:my-8">
+            <div class="qa-item">
+                <input type="checkbox" id="qa3">
+                <label for="qa3">
+                    <div class="qa-question">Q. Gemini 2.5 Proは、具体的にどのような複雑なタスク処理ができますか？</div>
+                </label>
+                <div class="qa-answer">
+                  A. 例えば、複数のドキュメントから情報を抽出し、要約したり、異なるデータソースを組み合わせて、より深い分析を行ったりすることができます。
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-8 md:mb-10">
+            <h2 class="text-2xl sm:text-2xl font-semibold mb-4 md:mb-6 section-title">3. 利用シーンの提案</h2>
+            <p class="mb-4 md:mb-6 summary">
+               それぞれの特徴を踏まえ、最適な利用シーンを提案します。
+            </p>
+            <ul class="list-disc list-inside space-y-2 md:space-y-3">
+                <li><span class="font-semibold">Gemini 2.5 Pro</span>:
+                    <ul class="list-disc list-inside ml-5">
+                        <li><span class="highlight">高度なデータ分析</span>: 大量のデータを処理し、複雑な分析を行う必要がある場合<span class="important">（重要度：高）</span>。</li>
+                        <li><span class="highlight">システム開発</span>: 複雑なコード生成や、異なるシステム間の連携が必要な場合<span class="important">（重要度：高）</span>。</li>
+                        <li><span class="highlight">クリエイティブ</span>: 映像、音楽、テキストなどを組み合わせた、新しい表現を追求する場合<span class="medium">（重要度：中）</span>。</li>
+                    </ul>
+                </li>
+                <li><span class="font-semibold">ChatGPT o3</span>:
+                    <ul class="list-disc list-inside ml-5">
+                        <li><span class="highlight">顧客対応</span>: 自然な対話による、きめ細かい顧客対応が求められる場合<span class="important">（重要度：高）</span>。</li>
+                        <li><span class="highlight">コンテンツ制作</span>: ブログ記事、マーケティングコピーなど、多様な文章を効率的に生成したい場合<span class="medium">（重要度：中）</span>。</li>
+                        <li><span class="highlight">教育</span>: 個々の学生に合わせた、パーソナライズされた学習支援を提供したい場合<span class="low">（重要度：低）</span>。</li>
+                    </ul>
+                </li>
+            </ul>
+            <hr class="my-6 md:my-8">
+            <div class="qa-item">
+                <input type="checkbox" id="qa4">
+                <label for="qa4">
+                    <div class="qa-question">Q. どちらのモデルを選ぶべきか迷った場合は？</div>
+                </label>
+                <div class="qa-answer">
+                    A. 具体的な利用目的と、必要な機能に基づいて判断することをおすすめします。
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="text-2xl sm:text-2xl font-semibold mb-4 md:mb-6 section-title">4. まとめ</h2>
+            <p class="mb-4 md:mb-6">
+                Gemini 2.5 Proは、マルチモーダル対応と複雑なタスク処理能力に優れ、ChatGPT o3は、自然な対話能力と多様な文章生成能力に強みを持ちます。
+            </p>
+            <p class="mb-4 md:mb-6">
+                利用シーンに応じて、最適なモデルを選択することが重要です。
+            </p>
+        </section>
+
+        <section class="mt-8 md:mt-10">
+            <h2 class="text-2xl sm:text-2xl font-semibold mb-4 md:mb-6 section-title">重要な用語・事実リスト</h2>
+            <div class="overflow-x-auto">
+                <table class="min-w-full bg-white rounded-lg shadow-md">
+                    <thead class="bg-gray-100">
+                        <tr>
+                            <th class="px-4 py-2 text-left">用語・事実</th>
+                            <th class="px-4 py-2 text-left">説明</th>
+                            <th class="px-4 py-2 text-left">重要度</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="px-4 py-2 font-semibold">Gemini 2.5 Pro</td>
+                            <td class="px-4 py-2">Googleのマルチモーダル対応基盤モデル</td>
+                            <td class="px-4 py-2"><span class="important">高</span></td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-2 font-semibold">ChatGPT o3</td>
+                            <td class="px-4 py-2">OpenAIのテキスト生成に特化した言語モデル</td>
+                            <td class="px-4 py-2"><span class="medium">中</span></td>
+                        </tr>
+                         <tr>
+                            <td class="px-4 py-2 font-semibold">マルチモーダル対応</td>
+                            <td class="px-4 py-2">複数の種類の情報を処理できる能力</td>
+                            <td class="px-4 py-2"><span class="medium">中</span></td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-2 font-semibold">長文脈処理能力</td>
+                            <td class="px-4 py-2">長い文章や会話の流れを理解する能力</td>
+                            <td class="px-4 py-2"><span class="medium">中</span></td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-2 font-semibold">複雑なタスク処理</td>
+                            <td class="px-4 py-2">複数の情報源を統合し、複雑な問題を解決する能力</td>
+                            <td class="px-4 py-2"><span class="important">高</span></td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-2 font-semibold">コード生成・実行</td>
+                            <td class="px-4 py-2">コードの生成だけでなく、実行やテストも行う能力</td>
+                            <td class="px-4 py-2"><span class="important">高</span></td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-2 font-semibold">自然な対話</td>
+                            <td class="px-4 py-2">人間と自然な対話を行う能力</td>
+                            <td class="px-4 py-2"><span class="important">高</span></td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-2 font-semibold">多様な文章生成</td>
+                            <td class="px-4 py-2">様々な種類の文章を生成する能力</td>
+                            <td class="px-4 py-2"><span class="medium">中</span></td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-2 font-semibold">プラグイン拡張性</td>
+                            <td class="px-4 py-2">外部ツールやサービスとの連携により、機能を拡張できる能力</td>
+                            <td class="px-4 py-2"><span class="low">低</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
